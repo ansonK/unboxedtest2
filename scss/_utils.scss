@@ -1,0 +1,32 @@
+// PX to EM conversion
+@function em($target, $context: $base-font-size) {
+  @if $target == 0 { @return 0 }
+  @return $target / $context + 0em;
+}
+
+
+
+
+@mixin respond-to($media) {
+
+  $large: 900px;
+  $tablet: 600px;
+  $phone: 400px;
+
+  @if $media == phone {
+    @media (max-width: #{$phone}) { @content; }
+  }
+
+  @if $media == tablet {
+    @media (max-width: #{$tablet}) { @content; }
+  }
+
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
